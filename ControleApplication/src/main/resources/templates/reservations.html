@@ -18,6 +18,7 @@
     <table class="table">
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Date</th>
                 <th>Type</th>
                 <th>Duration (Days)</th>
@@ -29,6 +30,7 @@
         </thead>
         <tbody>
             <tr th:each="reservation : ${reservations}">
+                <td th:text="${reservation.id}"></td>
                 <td th:text="${reservation.dateReservation}"></td>
                 <td th:text="${reservation.reservationType}"></td>
                 <td th:text="${reservation.reservationDurationDays}"></td>
@@ -36,10 +38,11 @@
                 <td th:text="${reservation.reservationEtat}"></td>
                 <td th:text="${reservation.getEntreprise().getNameEtreprise()}"></td>
                 <td>
-                    <a th:href="@{/reservation/edit/{id}(id=${reservation.id})}" class="btn btn-sm btn-warning">Edit</a>
-                    <a th:href="@{/reservation/delete/{id}(id=${reservation.id})}" 
-                       class="btn btn-sm btn-danger"
-                       onclick="return confirm('Are you sure?')">Delete</a>
+                    <a th:href="@{/reservation/edit(id=${reservation.id})}" class="btn btn-sm btn-warning">Edit</a>
+                    <form th:action="@{/reservation/delete(id=${reservation.id})}" method="post">
+                        <button type="submit" class="btn btn-sm btn-danger">
+                            Delete
+                        </button>
                 </td>
             </tr>
         </tbody>
