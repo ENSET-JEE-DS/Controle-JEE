@@ -11,14 +11,12 @@ public class EntrepriseSample {
     public static List<Entreprise> getSampleEntreprises() {
         return Arrays.asList(
                 Entreprise.builder()
-                        .id("1")
                         .nameEtreprise("TechCorp")
                         .username("techcorp_user")
                         .email("contact@techcorp.com")
                         .activityDomain("Technology")
                         .build(),
                 Entreprise.builder()
-                        .id("2")
                         .nameEtreprise("HealthPlus")
                         .username("healthplus_user")
                         .email("info@healthplus.com")
